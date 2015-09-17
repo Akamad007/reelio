@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+	
+        <!-- Latest work -->
+        <div class="work-container">
+	        <div class="container">
+	        	<div class="row">
+	        		<h1>
+	        			<a href="/home/create/"> <button type="button" class="btn">Add Tasks</button></a>
+	        			<a href="/home/trashBox/"> <button type="button" class="btn">View Trash({{ trashCount }})</button></a>
+	        		</h1>
+	        		{% if tasks %}
+		            <div class="col-sm-12 work-title wow fadeIn">
+		                <h2>TrashBox</h2>
+		              
+			              {% for task in tasks %}
+	             			<div class="col-sm-3">
+				                <div class="work wow fadeInUp">
+				                  
+				                    <h3>{{ task.title }}</h3>
+									<h4>{{ task.summary }}</h4>	                   
+				                    <div class="work-bottom">
+					                       
+				                        <h3>
+				                      
+				                        	<a  class="delete" href="{{ task.id }}">Delete Forever</a>&nbsp;&nbsp;
+				                       	 	<a  class="restore" href="{{ task.id }}">Restore</a>
+				                       	 	<br />
+				                        	
+				                        	
+				                        
+				                        </h3>				                				                      
+				                    </div>
+				                </div>
+			                </div>	             			             	        
+	             		
+		                {% endfor %}
+		                
+		            </div>
+		            {% endif %}
+	            </div>
+	            <div class="row">
+	            	
+	            </div>
+	        </div>
+        </div>
+
+       
+	
+{% endblock %}
+{% block inlinejs %}
+ <script src="/media/js/customJs/trash.js"></script>
+{% endblock %}
+
